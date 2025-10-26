@@ -1,22 +1,18 @@
 import streamlit as st
 import requests
 
-# ------------------- PAGE CONFIG -------------------
 st.set_page_config(page_title="Currency Converter 💱", page_icon="💰", layout="centered")
 
-# ------------------- TITLE & HEADER -------------------
 st.title("💰 Currency Converter")
 st.markdown("Convert between world currencies using live exchange rates 🌍")
 
 st.markdown("---")
 
-# ------------------- AVAILABLE CURRENCIES -------------------
 CURRENCIES = [
     "USD", "INR", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "CNY", "SGD",
     "NZD", "HKD", "KRW", "SEK", "NOK", "ZAR", "MXN", "THB", "AED"
 ]
 
-# ------------------- INPUT FIELDS -------------------
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -30,7 +26,6 @@ with col3:
 
 st.markdown("")
 
-# ------------------- CONVERT BUTTON -------------------
 if st.button("🔁 Convert", use_container_width=True):
     try:
         url = f"https://api.exchangerate-api.com/v4/latest/{from_currency}"
